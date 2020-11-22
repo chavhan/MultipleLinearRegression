@@ -1,0 +1,221 @@
+reg_sim <- lm(Price~.,data = CarWorkingData)
+summary(reg_sim)
+
+Coefficients:
+                Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   -5.573e+03  1.411e+03  -3.949 8.24e-05 ***
+Age_08_04     -1.217e+02  2.616e+00 -46.512  < 2e-16 ***
+KM            -2.082e-02  1.252e-03 -16.622  < 2e-16 ***
+HP             3.168e+01  2.818e+00  11.241  < 2e-16 ***
+cc            -1.211e-01  9.009e-02  -1.344  0.17909    
+Doors         -1.617e+00  4.001e+01  -0.040  0.96777    
+Gears          5.943e+02  1.971e+02   3.016  0.00261 ** 
+Quarterly_Tax  3.949e+00  1.310e+00   3.015  0.00262 ** 
+Weight         1.696e+01  1.068e+00  15.880  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1342 on 1427 degrees of freedom
+Multiple R-squared:  0.8638,	Adjusted R-squared:  0.863 
+F-statistic:  1131 on 8 and 1427 DF,  p-value: < 2.2e-16
+
+==============================================================================================
+
+Call:
+lm(formula = Price ~ cc, data = CarWorkingData)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-7360.2 -2305.8  -855.8  1194.2 21312.1 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 9027.5548   365.5755  24.694  < 2e-16 ***
+cc             1.0802     0.2239   4.825 1.55e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 3599 on 1434 degrees of freedom
+Multiple R-squared:  0.01597,	Adjusted R-squared:  0.01529 
+F-statistic: 23.28 on 1 and 1434 DF,  p-value: 1.551e-06
+
+==============================================================================================
+
+Call:
+lm(formula = Price ~ Doors, data = CarWorkingData)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-7062.8 -2251.7  -915.3   958.0 21087.2 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  7885.01     409.44  19.258  < 2e-16 ***
+Doors         705.56      98.79   7.142 1.46e-12 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 3565 on 1434 degrees of freedom
+Multiple R-squared:  0.03435,	Adjusted R-squared:  0.03367 
+F-statistic:    51 on 1 and 1434 DF,  p-value: 1.461e-12
+
+==============================================================================================
+
+Call:
+lm(formula = Price ~ cc + Doors, data = CarWorkingData)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-7243.9 -2273.6  -821.3  1054.4 20714.1 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 6509.4211   515.7732  12.621  < 2e-16 ***
+cc             0.9597     0.2211   4.340 1.52e-05 ***
+Doors        671.3973    98.5009   6.816 1.37e-11 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 3543 on 1433 degrees of freedom
+Multiple R-squared:  0.04688,	Adjusted R-squared:  0.04555 
+F-statistic: 35.24 on 2 and 1433 DF,  p-value: 1.15e-15
+
+partial corilation of cc and Doors respactabaly from Price 
+-0.03556185 -0.001069746
+
+==============================================================================================
+
+Call:
+lm(formula = Price ~ ., data = CarWorkingData[-81, ])
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-11455.7   -761.7    -32.7    739.3   6739.7 
+
+Coefficients:
+                Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   -6.285e+03  1.383e+03  -4.545 5.95e-06 ***
+Age_08_04     -1.205e+02  2.562e+00 -47.021  < 2e-16 ***
+KM            -1.785e-02  1.277e-03 -13.973  < 2e-16 ***
+HP             3.935e+01  2.911e+00  13.516  < 2e-16 ***
+cc            -2.524e+00  3.072e-01  -8.216 4.67e-16 ***
+Doors         -2.723e+01  3.924e+01  -0.694  0.48788    
+Gears          5.239e+02  1.929e+02   2.717  0.00667 ** 
+Quarterly_Tax  9.044e+00  1.425e+00   6.348 2.93e-10 ***
+Weight         2.017e+01  1.116e+00  18.076  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1313 on 1426 degrees of freedom
+Multiple R-squared:  0.8694,	Adjusted R-squared:  0.8686 
+F-statistic:  1186 on 8 and 1426 DF,  p-value: < 2.2e-16
+
+==============================================================================================
+
+
+ vif(reg_sim)
+    Age_08_04            KM            HP            cc         Doors         Gears Quarterly_Tax 
+     1.884620      1.756905      1.419422      1.163894      1.156575      1.098723      2.311431 
+       Weight 
+     2.516420 
+Highest vif value is for Weight feature 2.516420
+
+==============================================================================================
+
+AIC values 
+
+Start:  AIC=20693.89
+Price ~ Age_08_04 + KM + HP + cc + Doors + Gears + Quarterly_Tax + 
+    Weight
+
+                Df  Sum of Sq        RSS   AIC
+- Doors          1       2943 2571786477 20692
+- cc             1    3256511 2575040045 20694
+<none>                        2571783534 20694
+- Quarterly_Tax  1   16377633 2588161166 20701
+- Gears          1   16393629 2588177163 20701
+- HP             1  227730786 2799514319 20814
+- Weight         1  454465243 3026248777 20926
+- KM             1  497917334 3069700867 20946
+- Age_08_04      1 3898860600 6470644134 22017
+
+Step:  AIC=20691.89
+Price ~ Age_08_04 + KM + HP + cc + Gears + Quarterly_Tax + Weight
+
+                Df  Sum of Sq        RSS   AIC
+- cc             1    3254209 2575040686 20692
+<none>                        2571786477 20692
+- Quarterly_Tax  1   16503849 2588290326 20699
+- Gears          1   17093855 2588880332 20699
+- HP             1  228761929 2800548406 20812
+- Weight         1  484447009 3056233485 20938
+- KM             1  498427860 3070214337 20944
+- Age_08_04      1 3898877516 6470663993 22015
+
+Step:  AIC=20691.7
+Price ~ Age_08_04 + KM + HP + Gears + Quarterly_Tax + Weight
+
+                Df  Sum of Sq        RSS   AIC
+<none>                        2575040686 20692
+- Quarterly_Tax  1   14976762 2590017448 20698
+- Gears          1   17276597 2592317283 20699
+- HP             1  225684613 2800725299 20810
+- Weight         1  484245502 3059286188 20937
+- KM             1  506728527 3081769213 20948
+- Age_08_04      1 3902107988 6477148674 22014
+
+
+==============================================================================================
+
+Call:
+lm(formula = Price ~ Age_08_04 + KM + HP + Gears + Quarterly_Tax + 
+    Weight, data = CarWorkingData)
+
+Coefficients:
+  (Intercept)      Age_08_04             KM             HP          Gears  Quarterly_Tax  
+   -5.478e+03     -1.217e+02     -2.094e-02      3.133e+01      5.990e+02      3.737e+00  
+       Weight  
+    1.673e+01  
+
+best model is Price ~ Age_08_04 + KM + HP + Gears + Quarterly_Tax + Weight
+
+==============================================================================================
+
+Call:
+lm(formula = Price ~ Age_08_04 + KM + HP + Gears + Quarterly_Tax + 
+    Weight, data = CarWorkingData[-81, ])
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-9199.3  -792.7   -24.8   801.3  6441.6 
+
+Coefficients:
+                Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   -5.436e+03  1.409e+03  -3.858  0.00012 ***
+Age_08_04     -1.217e+02  2.615e+00 -46.529  < 2e-16 ***
+KM            -2.092e-02  1.249e-03 -16.750  < 2e-16 ***
+HP             3.135e+01  2.799e+00  11.199  < 2e-16 ***
+Gears          5.995e+02  1.934e+02   3.099  0.00198 ** 
+Quarterly_Tax  3.769e+00  1.297e+00   2.906  0.00371 ** 
+Weight         1.668e+01  1.021e+00  16.325  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1342 on 1428 degrees of freedom
+Multiple R-squared:  0.8632,	Adjusted R-squared:  0.8626 
+F-statistic:  1502 on 6 and 1428 DF,  p-value: < 2.2e-16
+
+
+==============================================================================================
+
+temp.data <- data.frame(c('reg_sim','lm(Price~.,data = CarWorkingData)',
+                          '0.8638',cor_val_sim),
+                        c('reg_impSim','lm(formula = Price ~ ., data = CarWorkingData[-81, ])',
+                        '0.8694',cor_val_impSim),
+                        c('reg_final','lm(formula = Price ~ Age_08_04 + KM + HP + Gears + Quarterly_Tax + 
+    Weight, data = CarWorkingData[-81, ])',
+                          '0.8632',cor_val_final)
+                        )
+
+temp.data <- data.frame('reg_impSim','lm(formula = Price ~ ., data = CarWorkingData[-81, ])',
+                        '0.8694',cor_val_impSim)

@@ -1,0 +1,212 @@
+Call:
+lm(formula = Profit ~ ., data = startups)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-33504  -4736     90   6672  17338 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)      5.013e+04  6.885e+03   7.281 4.44e-09 ***
+R.D.Spend        8.060e-01  4.641e-02  17.369  < 2e-16 ***
+Administration  -2.700e-02  5.223e-02  -0.517    0.608    
+Marketing.Spend  2.698e-02  1.714e-02   1.574    0.123    
+StateFlorida     1.988e+02  3.371e+03   0.059    0.953    
+StateNew York   -4.189e+01  3.256e+03  -0.013    0.990    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 9439 on 44 degrees of freedom
+Multiple R-squared:  0.9508,	Adjusted R-squared:  0.9452 
+F-statistic: 169.9 on 5 and 44 DF,  p-value: < 2.2e-16
+
+cor_val_sim
+[1] 0.9750654
+=======================================================================================================
+
+1] "R.D.Spend"       "Administration"  "Marketing.Spend" "State"           "Profit" 
+
+"R.D.Spend"        "Administration"   "Marketing.Spend"  "State.California" "State.Florida"   
+[6] "State.New York"   "Profit"          
+
+
+=======================================================================================================
+
+Call:
+lm(formula = dummy_startups$Profit ~ ., data = dummy_startups)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-15464  -4887  -1424   5550  13560 
+
+Coefficients: (1 not defined because of singularities)
+                   Estimate Std. Error t value Pr(>|t|)    
+(Intercept)       5.818e+04  6.424e+03   9.056 3.11e-11 ***
+R.D.Spend         7.751e-01  3.909e-02  19.828  < 2e-16 ***
+Administration   -5.759e-02  4.515e-02  -1.275    0.210    
+Marketing.Spend   2.102e-02  1.528e-02   1.376    0.176    
+State.California  1.597e+03  2.765e+03   0.578    0.567    
+State.Florida    -1.552e+02  2.705e+03  -0.057    0.955    
+`State.New York`         NA         NA      NA       NA    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 7503 on 40 degrees of freedom
+Multiple R-squared:  0.9613,	Adjusted R-squared:  0.9565 
+F-statistic: 198.7 on 5 and 40 DF,  p-value: < 2.2e-16
+
+ cor_val_dummy
+[1] 0.9804582
+
+=======================================================================================================
+
+Call:
+lm(formula = dummy_startups$Profit ~ dummy_startups$Administration + 
+    dummy_startups$Marketing.Spend + dummy_startups$State.California + 
+    dummy_startups$State.Florida, data = dummy_startups)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-79914 -14008   2718  12829  53521 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                      2.736e+04  2.026e+04   1.350   0.1843    
+dummy_startups$Administration    2.720e-01  1.364e-01   1.993   0.0529 .  
+dummy_startups$Marketing.Spend   2.460e-01  3.325e-02   7.400 4.52e-09 ***
+dummy_startups$State.California  3.783e+03  8.979e+03   0.421   0.6758    
+dummy_startups$State.Florida    -2.553e+03  8.782e+03  -0.291   0.7727    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 24390 on 41 degrees of freedom
+Multiple R-squared:  0.5809,	Adjusted R-squared:   0.54 
+F-statistic: 14.21 on 4 and 41 DF,  p-value: 2.333e-07
+
+=======================================================================================================
+
+Call:
+lm(formula = dummy_startups$Profit ~ dummy_startups$Administration, 
+    data = dummy_startups)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-66463 -25058  -9190  28610  77755 
+
+Coefficients:
+                               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                   9.497e+04  2.500e+04   3.799 0.000443 ***
+dummy_startups$Administration 1.812e-01  2.003e-01   0.904 0.370772    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 36030 on 44 degrees of freedom
+Multiple R-squared:  0.01825,	Adjusted R-squared:  -0.004067 
+F-statistic: 0.8177 on 1 and 44 DF,  p-value: 0.3708
+
+=======================================================================================================
+
+Call:
+lm(formula = dummy_startups$Profit ~ dummy_startups$Marketing.Spend, 
+    data = dummy_startups)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-83827 -19030   6541  15433  62870 
+
+Coefficients:
+                                Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                    6.305e+04  8.408e+03   7.499 2.14e-09 ***
+dummy_startups$Marketing.Spend 2.365e-01  3.316e-02   7.133 7.31e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 24770 on 44 degrees of freedom
+Multiple R-squared:  0.5362,	Adjusted R-squared:  0.5257 
+F-statistic: 50.87 on 1 and 44 DF,  p-value: 7.31e-09
+
+
+=======================================================================================================
+
+ vif(reg_dummy)
+       R.D.Spend   Administration  Marketing.Spend State.California    State.Florida 
+        2.331870         1.171396         2.312491         1.372512         1.355895 
+
+=======================================================================================================
+
+Start:  AIC=826.5
+dummy_startups$Profit ~ R.D.Spend + Administration + Marketing.Spend + 
+    State.California + State.Florida
+
+                   Df  Sum of Sq        RSS    AIC
+- State.Florida     1 1.8538e+05 2.2523e+09 824.50
+- State.California  1 1.8789e+07 2.2709e+09 824.88
+- Administration    1 9.1592e+07 2.3437e+09 826.33
+<none>                           2.2521e+09 826.50
+- Marketing.Spend   1 1.0659e+08 2.3587e+09 826.63
+- R.D.Spend         1 2.2134e+10 2.4386e+10 934.08
+
+Step:  AIC=824.5
+dummy_startups$Profit ~ R.D.Spend + Administration + Marketing.Spend + 
+    State.California
+
+                   Df  Sum of Sq        RSS    AIC
+- State.California  1 2.7455e+07 2.2797e+09 823.06
+- Administration    1 9.1507e+07 2.3438e+09 824.33
+<none>                           2.2523e+09 824.50
+- Marketing.Spend   1 1.0648e+08 2.3587e+09 824.63
+- R.D.Spend         1 2.2184e+10 2.4436e+10 932.17
+
+Step:  AIC=823.06
+dummy_startups$Profit ~ R.D.Spend + Administration + Marketing.Spend
+
+                  Df  Sum of Sq        RSS    AIC
+- Marketing.Spend  1 9.2234e+07 2.3720e+09 822.88
+- Administration   1 1.0115e+08 2.3809e+09 823.06
+<none>                          2.2797e+09 823.06
+- R.D.Spend        1 2.2411e+10 2.4690e+10 930.65
+
+Step:  AIC=822.88
+dummy_startups$Profit ~ R.D.Spend + Administration
+
+                 Df  Sum of Sq        RSS    AIC
+<none>                         2.3720e+09 822.88
+- Administration  1 1.9401e+08 2.5660e+09 824.50
+- R.D.Spend       1 5.4757e+10 5.7129e+10 967.24
+
+Call:
+lm(formula = dummy_startups$Profit ~ R.D.Spend + Administration, 
+    data = dummy_startups)
+
+Coefficients:
+   (Intercept)       R.D.Spend  Administration  
+     6.300e+04       8.141e-01      -7.897e-02  
+
+Note:-  As per this result the minimum AIC value  AIC=822.88, model is dummy_startups$Profit ~ R.D.Spend + Administration
+
+=======================================================================================================
+
+Call:
+lm(formula = dummy_startups$Profit ~ R.D.Spend + Administration, 
+    data = dummy_startups)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-16632  -4867  -2488   6280  14410 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)     6.300e+04  5.252e+03  11.994 2.62e-15 ***
+R.D.Spend       8.141e-01  2.584e-02  31.507  < 2e-16 ***
+Administration -7.897e-02  4.211e-02  -1.875   0.0675 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 7427 on 43 degrees of freedom
+Multiple R-squared:  0.9592,	Adjusted R-squared:  0.9573 
+F-statistic:   506 on 2 and 43 DF,  p-value: < 2.2e-16
+
+cor_val_dummy_aic
+[1] 0.979407
+
+=======================================================================================================
